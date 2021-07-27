@@ -19,6 +19,7 @@ class Post
                         ORDER BY posts.created_at DESC
                         ");
         $result = $this->db->resultSet();
+        $this->db->closeConn();
         return $result;
     }
     public function addPost($data)
@@ -28,6 +29,7 @@ class Post
         $this->db->bind(':user_id', $data['user_id']);
         $this->db->bind(':body', $data['body']);
         if ($this->db->execute()) {
+            $this->db->closeConn();
             return true;
         } else {
             return false;
@@ -39,6 +41,7 @@ class Post
         $this->db->query("SELECT * FROM posts WHERE id=:id");
         $this->db->bind(':id', $id);
         $row = $this->db->single();
+        $this->db->closeConn();
         return $row;
     }
 
@@ -47,6 +50,7 @@ class Post
         $this->db->query("DELETE FROM posts WHERE id=:id");
         $this->db->bind(":id", $id);
         if ($this->db->execute()) {
+            $this->db->closeConn();
             return true;
         } else {
             return false;
@@ -62,6 +66,7 @@ class Post
 
         // Execute
         if ($this->db->execute()) {
+            $this->db->closeConn();
             return true;
         } else {
             return false;
