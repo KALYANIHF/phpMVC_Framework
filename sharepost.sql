@@ -64,6 +64,10 @@ ALTER TABLE `posts`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 39ea218d1da154ba3dd4f28ab287cf919b7568ed
 --
 -- AUTO_INCREMENT for dumped tables
 --
